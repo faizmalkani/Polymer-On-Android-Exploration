@@ -1,0 +1,92 @@
+<html>
+	<head>
+		<!-- CHANGE TITLE AND META ACCORDINGLY -->
+		<title>Polymer Exploration</title>
+		<meta name="description" content="Faiz Malkani, Designer and Developer for Android and the Web">
+		<meta name="keywords" content="faiz, malkani, android, ui, ux, frontend">
+		<meta name="copyright" content="Copyright © 2014 Faiz Malkani. All Rights Reserved.">
+		<meta name="author" content="Faiz Malkani">
+		<meta name="theme-color" content="#ffffff">
+		<meta content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes" name="viewport">
+		<script src="bower_components/webcomponentsjs/webcomponents.js"></script>
+		<link rel="import" href="bower_components/core-scaffold/core-scaffold.html">
+		<link rel="import" href="bower_components/core-header-panel/core-header-panel.html">
+		<link rel="import" href="bower_components/core-toolbar/core-toolbar.html">
+		<link rel="import" href="bower_components/core-menu/core-menu.html">
+		<link rel="import" href="bower_components/core-item/core-item.html">
+		<style>
+			:host 
+			{
+				position: absolute;
+				width: 100%;
+				height: 100%;
+				box-sizing: border-box;
+			}
+			body
+			{
+				font-family: RobotoDraft, sans-serif;
+			}
+			#core_scaffold 
+			{
+				position: absolute;
+				top: 0px;
+				right: 0px;
+				bottom: 0px;
+				left: 0px;
+			}
+			#core_header_panel 
+			{
+				background-color: rgb(255, 255, 255);
+			}
+			core-scaffold::shadow core-toolbar
+			{
+				color: #fff;
+				background-color: #22a7f0;
+                box-shadow: rgba(0, 0, 0, 0.0980392) 0px 2px 4px, rgba(0, 0, 0, 0.0980392) 0px 0px 3px;
+			}
+			#core_toolbar
+			{
+				color: #fff;
+				background-color: #3cc1ff;
+			}
+			#core_menu 
+			{
+				font-size: 16px;
+			}
+			core-item::shadow core-icon
+			{
+				color: #3cc1ff;
+			}
+		</style>
+	</head>
+	<body>
+	
+		
+	
+		<div class="container" style="width: 100%">
+			<core-scaffold id="core_scaffold">
+				<core-header-panel mode="seamed" id="core_header_panel" navigation flex>
+					<core-toolbar id="core_toolbar"></core-toolbar>
+						<core-menu valueattr="label" id="core_menu" theme="core-light-theme">
+						<core-item id="core_item" icon="polymer" label="Item 1" horizontal center layout></core-item>
+						<core-item id="core_item1" icon="store" label="Item 2" horizontal center layout></core-item>
+						<core-item id="core_item2" icon="android" label="Item 4" horizontal center layout></core-item>
+						<core-item id="core_item3" icon="settings" label="Item 5" horizontal center layout></core-item>
+					</core-menu>
+				</core-header-panel>
+				<div id="div" tool>Polymer Exploration</div>
+			</core-scaffold>
+			
+		</div>
+			
+			
+			
+			
+			
+		<!-- ===================================================================================================== -->
+			
+		<!-- JAVASCRIPT -->
+		
+		
+	</body>
+</html>	
