@@ -1,116 +1,159 @@
 <html>
 	<head>
 		<!-- CHANGE TITLE AND META ACCORDINGLY -->
-		<title>Polymer Exploration</title>
-		<meta name="description" content="Faiz Malkani, Designer and Developer for Android and the Web">
-		<meta name="keywords" content="faiz, malkani, android, ui, ux, frontend">
+		<title>Polymer on Android</title>
 		<meta name="copyright" content="Copyright © 2014 Faiz Malkani. All Rights Reserved.">
 		<meta name="author" content="Faiz Malkani">
 		<meta name="theme-color" content="#ffffff">
 		<meta content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes" name="viewport">
 		<script src="bower_components/webcomponentsjs/webcomponents.js"></script>
+		<link rel="import" href="bower_components/core-animated-pages/core-animated-pages.html">
+		<link rel="import" href="bower_components/core-animated-pages/transitions/slide-from-right.html">
 		<link rel="import" href="bower_components/core-scaffold/core-scaffold.html">
+		<link rel="import" href="bower_components/font-roboto/roboto.html">
 		<link rel="import" href="bower_components/core-header-panel/core-header-panel.html">
 		<link rel="import" href="bower_components/core-toolbar/core-toolbar.html">
 		<link rel="import" href="bower_components/core-menu/core-menu.html">
-		<link rel="import" href="bower_components/core-item/core-item.html">
+		<link rel="import" href="bower_components/paper-icon-button/paper-icon-button.html">
+		<link rel="import" href="bower_components/core-icons/core-icons.html">
+		<link rel="import" href="bower_components/paper-item/paper-item.html">
 		<link rel="import" href="bower_components/paper-ripple/paper-ripple.html">
 		<style>
 			:host 
 			{
-				position: absolute;
-				width: 100%;
-				height: 100%;
-				box-sizing: border-box;
+			position: absolute;
+			width: 100%;
+			height: 100%;
+			box-sizing: border-box;
 			}
+			
 			body
 			{
-				font-family: RobotoDraft, sans-serif;
-			}
-			#core_scaffold 
-			{
-				position: absolute;
-				top: 0px;
-				right: 0px;
-				bottom: 0px;
-				left: 0px;
-			}
-			#core_header_panel 
-			{
-				background-color: rgb(255, 255, 255);
-			}
-			core-scaffold::shadow core-toolbar
-			{
-				color: #fff;
-				background-color: #22a7f0;
-                box-shadow: rgba(0, 0, 0, 0.0980392) 0px 2px 4px, rgba(0, 0, 0, 0.0980392) 0px 0px 3px;
-			}
-			#core_toolbar
-			{
-				color: #fff;
-				background-color: #3cc1ff;
-			}
-			#core_menu 
-			{
-				font-size: 16px;
-				margin: 0px;
-			}
-			core-item::shadow core-icon
-			{
-				color: #3cc1ff;
+			font-family: RobotoDraft, sans-serif;
+			margin: 0px;
 			}
 			
-			paper-ripple
+			.toolbar-dark
 			{
-				color: #22a7f0;
+			background-color: #22a7f0;
+			color: #ffffff;
 			}
 			
-			.item-container
+			core-menu
 			{
-				position: relative; 
-				padding: 10px;
+			margin: 0px;
 			}
+			
+			core-menu .core-selected, core-menu .core-selected span, core-menu .core-selected core-icon
+			{
+			color: #22a7f0;
+			}
+			
+			core-menu .core-selected
+			{
+			background-color: #e0e0e0;
+			}
+			
+			.drawer-header
+			{
+			background-color: #fff;
+			}
+			
+			.menu-icon
+			{
+			color: #333333;
+			}
+			
+			.menu-label
+			{
+			margin-left: 2em;
+			color: #333333;
+			}
+			
+			.app-page
+			{
+				margin: auto;
+				text-align: center;
+				margin-top: 128px;
+				font-weight: 200;
+				font-size: 6.5em;
+				color: #333333;
+			}
+			
 		</style>
 	</head>
 	<body>
-	
-		
-	
-		<div class="container" style="width: 100%">
-			<core-scaffold id="core_scaffold">
-				<core-header-panel mode="seamed" id="core_header_panel" navigation flex>
-					<core-menu valueattr="label" id="core_menu" theme="core-light-theme">
-						<div class="item-container">
-							<core-item id="core_item" icon="polymer" label="Item 1" horizontal center layout></core-item>
-							<paper-ripple fit></paper-ripple>
-						</div>		
-						<div class="item-container">
-							<core-item id="core_item1" icon="store" label="Item 2" horizontal center layout></core-item>
-							<paper-ripple fit></paper-ripple>
-						</div>
-						<div class="item-container">
-							<core-item id="core_item2" icon="android" label="Item 4" horizontal center layout></core-item>
-							<paper-ripple fit></paper-ripple>
-						</div>
-						<div class="item-container">
-							<core-item id="core_item3" icon="settings" label="Item 5" horizontal center layout></core-item>
-							<paper-ripple fit></paper-ripple>
-						</div>
+		<div class="container">
+			
+			<core-drawer-panel forceNarrow>
+				
+				<core-header-panel class="drawer-header" drawer>
+					<core-menu class="drawer-menu" selected="0">
+						<paper-item onclick="switchPage(0)">
+							<core-icon icon="polymer" class="menu-icon"></core-icon>
+							<span class="menu-label">Page One</span>
+						</paper-item>
+						<paper-item onclick="switchPage(1)">
+							<core-icon icon="cloud" class="menu-icon"></core-icon>
+							<span class="menu-label">Page Two</span>
+						</paper-item>
+						<paper-item onclick="switchPage(2)">
+							<core-icon icon="room" class="menu-icon"></core-icon>
+							<span class="menu-label">Page Three</span>
+						</paper-item>
+						<paper-item onclick="switchPage(3)">
+							<core-icon icon="android" class="menu-icon"></core-icon>
+							<span class="menu-label">Page Four</span>
+						</paper-item>
+						<paper-item onclick="switchPage(4)">
+							<core-icon icon="explore" class="menu-icon"></core-icon>
+							<span class="menu-label">Page Five</span>
+						</paper-item>
 					</core-menu>
 				</core-header-panel>
-				<div id="div" tool>Polymer Exploration</div>
-			</core-scaffold>
+				
+				<!-- HEADER --> 
+				<core-header-panel class="main-panel" main>
+					<core-toolbar class="toolbar-dark medium-tall">
+						<paper-icon-button icon="menu" core-drawer-toggle></paper-icon-button>
+						<span flex>Polymer on Android</span>
+					</core-toolbar>
+					
+					<core-animated-pages selected="0"  transitions="slide-from-right">
+						<section>
+							<div class="app-page">Page One</div>
+						</section>
+						<section>
+							<div class="app-page">Page Two</div>
+						</section>
+						<section>
+							<div class="app-page">Page Three</div>
+						</section>
+						<section>
+							<div class="app-page">Page Four</div>
+						</section>
+						<section>
+							<div class="app-page">Page Five</div>
+						</section>
+					</core-animated-pages>
+					
+				</core-header-panel>
+				
+			</core-drawer-panel>
+			
 			
 		</div>
-			
-			
-			
-			
-			
-		<!-- ===================================================================================================== -->
-			
-		<!-- JAVASCRIPT -->
 		
+		
+		<script>
+			function switchPage(pagenum)
+			{
+				var d = document.querySelector('core-drawer-panel');
+				d.closeDrawer();
+				var c = document.querySelector('core-animated-pages');
+				c.selected = pagenum;
+			}
+		</script>
 		
 	</body>
-</html>	
+</html>							
